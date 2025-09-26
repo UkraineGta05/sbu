@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Прокурорська перевірка НПУ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Підключення шрифта Spectral -->
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap" rel="stylesheet">
-
+  
   <style>
     body {
       font-family: 'Spectral', serif;
@@ -39,8 +39,6 @@
       cursor: pointer;
       transition: 0.3s ease;
       border-left: 6px solid #004fc1;
-      position: relative;
-      user-select: none;
     }
 
     .qa:hover {
@@ -50,14 +48,12 @@
     .question {
       font-size: 20px;
       position: relative;
-      padding-right: 100px; /* чтобы кнопки не наезжали на текст */
     }
 
     .question::after {
       content: "+";
       position: absolute;
-      right: 80px;
-      top: 0;
+      right: 0;
       font-size: 24px;
       color: #007bff;
       transition: transform 0.3s ease;
@@ -75,65 +71,10 @@
       font-size: 18px;
       margin-top: 10px;
       color: #333;
-      user-select: text;
     }
 
     .qa.active .answer {
       max-height: 400px;
-    }
-
-    .buttons {
-      position: absolute;
-      right: 20px;
-      top: 22px;
-      display: flex;
-      gap: 10px;
-    }
-
-    button.btn {
-      width: 32px;
-      height: 32px;
-      font-size: 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      transition: background-color 0.3s ease;
-    }
-
-    button.correct {
-      background-color: #28a745;
-    }
-
-    button.correct.selected {
-      box-shadow: 0 0 8px 2px #28a745cc;
-    }
-
-    button.incorrect {
-      background-color: #dc3545;
-    }
-
-    button.incorrect.selected {
-      box-shadow: 0 0 8px 2px #dc3545cc;
-    }
-
-    button.btn:disabled {
-      cursor: default;
-      opacity: 0.6;
-    }
-
-    #score {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 22px;
-      color: white;
-      text-shadow: 1px 1px 3px black;
-      user-select: none;
     }
 
     @media (max-width: 600px) {
@@ -142,14 +83,9 @@
       }
       .question {
         font-size: 18px;
-        padding-right: 80px;
       }
       .answer {
         font-size: 16px;
-      }
-      .buttons {
-        top: 18px;
-        right: 15px;
       }
     }
   </style>
@@ -158,54 +94,34 @@
 
   <h1>Питання для перевірки Національної Поліції України</h1>
 
-  <div class="container" id="quiz-container">
+  <div class="container">
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
       <div class="answer">Конституція України</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Який кодекс регламентує кримінальні правопорушення?</div>
       <div class="answer">Кримінальний Кодекс України</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Який кодекс регламентує адміністративні правопорушення?</div>
       <div class="answer">Кодекс про Адміністративні Правопорушення</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
       <div class="answer">Закон України "Про Національну поліцію"</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">До якої гілки влади відноситься Національна поліція України?</div>
       <div class="answer">Виконавча</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Приклади превентивних поліцейських заходів</div>
       <div class="answer">
         1. Перевірка документів<br>
@@ -214,139 +130,62 @@
         4. Зупинка транспортного засобу<br>
         та інші
       </div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Поліцейські заходи примусу</div>
       <div class="answer">Фізичний вплив (сила), застосування спецзасобів, застосування зброї</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Нормативно-правовий акт щодо зупинки ТЗ?</div>
       <div class="answer">Закон України про зупинку транспортних засобів</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Мінімальна швидкість на радарах у населених пунктах?</div>
       <div class="answer">70 км/год</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Що повинен мати поліцейський під час патрулювання?</div>
       <div class="answer">Бронежилет, зброя, рація, папка з протоколами</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Час на прибуття адвоката після згоди?</div>
       <div class="answer">15 хвилин</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Що має зробити поліцейський перед допуском адвоката?</div>
       <div class="answer">Перевірити його свідоцтво</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Яка стаття ККУ про проникнення на закриту територію?</div>
       <div class="answer">Стаття 45 ККУ</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Який акт визначає, що підрозділи НПУ — закриті об'єкти?</div>
       <div class="answer">Закон України про закриті та режимні об’єкти</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
-    <div class="qa" data-correct="true">
+    <div class="qa">
       <div class="question">Яка стаття закону визначає УНП як закриту територію?</div>
       <div class="answer">5 стаття ЗУ про закриті та режимні об’єкти</div>
-      <div class="buttons">
-        <button class="btn correct" title="Правильно" onclick="markAnswer(event, this)">✔️</button>
-        <button class="btn incorrect" title="Неправильно" onclick="markAnswer(event, this)">❌</button>
-      </div>
     </div>
 
   </div>
 
-  <div id="score">Відповідей ще немає</div>
-
   <script>
-    // Раскрытие/сворачивание ответа при клике по вопросу (но не по кнопкам)
     document.querySelectorAll('.qa').forEach(item => {
-      item.addEventListener('click', e => {
-        // Если кликнули по кнопке, не сворачивать
-        if(e.target.tagName.toLowerCase() === 'button') return;
+      item.addEventListener('click', () => {
         item.classList.toggle('active');
       });
     });
+  </script>
 
-    function markAnswer(event, btn) {
-      event.stopPropagation(); // Чтобы не срабатывал toggle active
-
-      const button = btn;
-      const qa = button.closest('.qa');
-      if (qa.dataset.answered) return; // Уже отвечено, блокируем
-
-      // Помечаем выбранную кнопку
-      const buttons = qa.querySelectorAll('button.btn');
-      buttons.forEach(b => b.disabled = true); // блокируем кнопки
-
-      // Отмечаем выбранный вариант
-      if(button.classList.contains('correct')) {
-        button.classList.add('selected');
-        qa.dataset.userAnswer = "true";
-      } else {
-        button.classList.add('selected');
-        qa.dataset.userAnswer = "false";
-      }
-
-      qa.dataset.answered = "true";
-
-      updateScore();
-    }
-
-    function updateScore() {
-      const qas = document.querySelectorAll('.qa');
-      let total = 0;
-      let correctCount = 0;
-
-      qas.forEach(qa => {
-        if(qa.dataset.answered) {
-          total++;
-          if(qa.dataset.userAnswer === "true" && qa.dataset.correct === "true") {
-            correct
+</body>
+</html>
