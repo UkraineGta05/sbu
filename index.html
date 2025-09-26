@@ -2,124 +2,184 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Прокурорська перевірка - НПУ</title>
+  <title>Прокурорська перевірка НПУ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: sans-serif;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      background: #e9ecef;
+      margin: 0;
       padding: 20px;
     }
+
     h1 {
       text-align: center;
-      color: #333;
+      color: #212529;
+      margin-bottom: 30px;
     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
     .qa {
       background: #fff;
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: 0.3s ease;
       cursor: pointer;
+      border-left: 5px solid #007bff;
     }
+
+    .qa:hover {
+      background: #f8f9fa;
+    }
+
     .question {
-      font-weight: bold;
+      font-size: 18px;
+      font-weight: 600;
+      color: #343a40;
+      position: relative;
     }
+
+    .question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      font-size: 22px;
+      transition: transform 0.3s ease;
+    }
+
+    .qa.active .question::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
     .answer {
-      display: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 16px;
+      color: #495057;
       margin-top: 10px;
-      color: #444;
     }
+
     .qa.active .answer {
-      display: block;
+      max-height: 500px;
+    }
+
+    @media (max-width: 600px) {
+      .qa {
+        padding: 15px;
+      }
+      .question {
+        font-size: 16px;
+      }
+      .answer {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-<h1>Питання для перевірки НПУ</h1>
+  <h1>Питання для перевірки Національної Поліції України</h1>
 
-<div class="qa">
-  <div class="question">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
-  <div class="answer">Конституція України</div>
-</div>
+  <div class="container">
 
-<div class="qa">
-  <div class="question">Який кодекс регламентує кримінальні правопорушення?</div>
-  <div class="answer">Кримінальний Кодекс України</div>
-</div>
+    <div class="qa">
+      <div class="question">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
+      <div class="answer">Конституція України</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Який кодекс регламентує адміністративні правопорушення?</div>
-  <div class="answer">Кодекс про Адміністративні Правопорушення</div>
-</div>
+    <div class="qa">
+      <div class="question">Який кодекс регламентує кримінальні правопорушення?</div>
+      <div class="answer">Кримінальний Кодекс України</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
-  <div class="answer">ЗУ про Національну Поліцію України</div>
-</div>
+    <div class="qa">
+      <div class="question">Який кодекс регламентує адміністративні правопорушення?</div>
+      <div class="answer">Кодекс про Адміністративні Правопорушення</div>
+    </div>
 
-<div class="qa">
-  <div class="question">До якої гілки влади відноситься Національна поліція України?</div>
-  <div class="answer">Виконавча</div>
-</div>
+    <div class="qa">
+      <div class="question">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
+      <div class="answer">Закон України "Про Національну поліцію"</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Приклади превентивних поліцейських заходів</div>
-  <div class="answer">1. Перевірка документів<br>2. Опитування особи<br>3. Поверхнева перевірка<br>4. Зупинка транспорту та інші</div>
-</div>
+    <div class="qa">
+      <div class="question">До якої гілки влади відноситься Національна поліція України?</div>
+      <div class="answer">Виконавча</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Поліцейські заходи примусу</div>
-  <div class="answer">Фізичний вплив, спецзасоби, зброя</div>
-</div>
+    <div class="qa">
+      <div class="question">Приклади превентивних поліцейських заходів</div>
+      <div class="answer">
+        1. Перевірка документів<br>
+        2. Опитування особи<br>
+        3. Поверхнева перевірка та огляд<br>
+        4. Зупинка транспортного засобу<br>
+        та інші
+      </div>
+    </div>
 
-<div class="qa">
-  <div class="question">Нормативно-правовий акт щодо зупинки ТЗ?</div>
-  <div class="answer">ЗУ про зупинку транспортних засобів</div>
-</div>
+    <div class="qa">
+      <div class="question">Поліцейські заходи примусу</div>
+      <div class="answer">Фізичний вплив (сила), застосування спецзасобів, застосування зброї</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Мінімальна швидкість на радарах у населених пунктах?</div>
-  <div class="answer">70 км/год</div>
-</div>
+    <div class="qa">
+      <div class="question">Нормативно-правовий акт щодо зупинки ТЗ?</div>
+      <div class="answer">Закон України про зупинку транспортних засобів</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Що повинен мати поліцейський під час патрулювання?</div>
-  <div class="answer">Бронежилет, зброя, рація, папка з протоколами</div>
-</div>
+    <div class="qa">
+      <div class="question">Мінімальна швидкість на радарах у населених пунктах?</div>
+      <div class="answer">70 км/год</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Час на прибуття адвоката після згоди?</div>
-  <div class="answer">15 хвилин</div>
-</div>
+    <div class="qa">
+      <div class="question">Що повинен мати поліцейський під час патрулювання?</div>
+      <div class="answer">Бронежилет, зброя, рація, папка з протоколами</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Що має зробити поліцейський перед допуском адвоката?</div>
-  <div class="answer">Перевірити його свідоцтво</div>
-</div>
+    <div class="qa">
+      <div class="question">Час на прибуття адвоката після згоди?</div>
+      <div class="answer">15 хвилин</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Яка стаття ККУ про проникнення на закриту територію?</div>
-  <div class="answer">Стаття 45 ККУ</div>
-</div>
+    <div class="qa">
+      <div class="question">Що має зробити поліцейський перед допуском адвоката?</div>
+      <div class="answer">Перевірити його свідоцтво</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Який акт визначає, що підрозділи НПУ — закриті об'єкти?</div>
-  <div class="answer">ЗУ про закриті та режимні об’єкти</div>
-</div>
+    <div class="qa">
+      <div class="question">Яка стаття ККУ про проникнення на закриту територію?</div>
+      <div class="answer">Стаття 45 ККУ</div>
+    </div>
 
-<div class="qa">
-  <div class="question">Яка стаття закону визначає УНП як закриту територію?</div>
-  <div class="answer">5 стаття ЗУ про закриті та режимні об’єкти</div>
-</div>
+    <div class="qa">
+      <div class="question">Який акт визначає, що підрозділи НПУ — закриті об'єкти?</div>
+      <div class="answer">Закон України про закриті та режимні об’єкти</div>
+    </div>
 
-<script>
-  document.querySelectorAll('.qa').forEach(item => {
-    item.addEventListener('click', () => {
-      item.classList.toggle('active');
+    <div class="qa">
+      <div class="question">Яка стаття закону визначає УНП як закриту територію?</div>
+      <div class="answer">5 стаття ЗУ про закриті та режимні об’єкти</div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.qa').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
