@@ -38,10 +38,6 @@
       position: relative;
     }
 
-    .qa:hover {
-      background: #f0f8ff;
-    }
-
     .question {
       font-size: 20px;
       cursor: pointer;
@@ -128,7 +124,10 @@
 
   <div class="container" id="quiz-container">
 
-    <!-- Приклад одного питання -->
+    <!-- ⚠️ 15 питань нижче. Всі мають унікальний index -->
+
+    <!-- Приклад -->
+    <!-- index = 0 -->
     <div class="qa">
       <div class="indicator" id="indicator-0"></div>
       <div class="question" onclick="toggleAnswer(this)">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
@@ -139,6 +138,7 @@
       </div>
     </div>
 
+    <!-- index = 1 -->
     <div class="qa">
       <div class="indicator" id="indicator-1"></div>
       <div class="question" onclick="toggleAnswer(this)">Який кодекс регламентує кримінальні правопорушення?</div>
@@ -149,43 +149,66 @@
       </div>
     </div>
 
-    <!-- Додай ще інші питання тут, ЗБЕРІГАЮЧИ ІНДЕКСИ -->
+    <!-- index = 2 -->
+    <div class="qa">
+      <div class="indicator" id="indicator-2"></div>
+      <div class="question" onclick="toggleAnswer(this)">Який кодекс регламентує адміністративні правопорушення?</div>
+      <div class="answer">Кодекс про Адміністративні Правопорушення</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(2, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(2, false)">❌ Не знав</button>
+      </div>
+    </div>
 
-  </div>
+    <!-- index = 3 -->
+    <div class="qa">
+      <div class="indicator" id="indicator-3"></div>
+      <div class="question" onclick="toggleAnswer(this)">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
+      <div class="answer">Закон України "Про Національну поліцію"</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(3, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(3, false)">❌ Не знав</button>
+      </div>
+    </div>
 
-  <div id="score">Правильних відповідей: 0 / 2</div>
+    <!-- index = 4 -->
+    <div class="qa">
+      <div class="indicator" id="indicator-4"></div>
+      <div class="question" onclick="toggleAnswer(this)">До якої гілки влади відноситься Національна поліція України?</div>
+      <div class="answer">Виконавча</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(4, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(4, false)">❌ Не знав</button>
+      </div>
+    </div>
 
-  <script>
-    let score = 0;
-    let total = 2; // ⚠️ Зміни це число на загальну кількість питань
-    let answered = Array(total).fill(null);
+    <!-- index = 5 -->
+    <div class="qa">
+      <div class="indicator" id="indicator-5"></div>
+      <div class="question" onclick="toggleAnswer(this)">Приклади превентивних поліцейських заходів</div>
+      <div class="answer">1. Перевірка документів<br>2. Опитування<br>3. Поверхнева перевірка<br>4. Зупинка ТЗ та інші</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(5, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(5, false)">❌ Не знав</button>
+      </div>
+    </div>
 
-    function toggleAnswer(el) {
-      el.parentElement.classList.toggle('active');
-    }
+    <!-- index = 6 -->
+    <div class="qa">
+      <div class="indicator" id="indicator-6"></div>
+      <div class="question" onclick="toggleAnswer(this)">Поліцейські заходи примусу</div>
+      <div class="answer">Фізичний вплив, спецзасоби, зброя</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(6, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(6, false)">❌ Не знав</button>
+      </div>
+    </div>
 
-    function markAnswer(index, isCorrect) {
-      if (answered[index] !== null) return; // вже відповіли
-
-      const indicator = document.getElementById('indicator-' + index);
-      if (isCorrect) {
-        indicator.innerHTML = '✔️';
-        indicator.classList.add('correct-icon');
-        score++;
-      } else {
-        indicator.innerHTML = '❌';
-        indicator.classList.add('incorrect-icon');
-      }
-
-      answered[index] = isCorrect;
-      updateScore();
-    }
-
-    function updateScore() {
-      document.getElementById('score').textContent =
-        `Правильних відповідей: ${score} / ${total}`;
-    }
-  </script>
-
-</body>
-</html>
+    <!-- index = 7 -->
+    <div class="qa">
+      <div class="indicator" id="indicator-7"></div>
+      <div class="question" onclick="toggleAnswer(this)">Нормативно-правовий акт щодо зупинки ТЗ</div>
+      <div class="answer">Закон України про зупинку транспортних засобів</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(7, true)">✅ Я знав</button>
+        <button
