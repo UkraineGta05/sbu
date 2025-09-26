@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <title>Прокурорська перевірка НПУ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Підключення шрифта Spectral -->
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap" rel="stylesheet">
-  
   <style>
     body {
       font-family: 'Spectral', serif;
@@ -36,9 +33,9 @@
       margin-bottom: 15px;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
       transition: 0.3s ease;
       border-left: 6px solid #004fc1;
+      position: relative;
     }
 
     .qa:hover {
@@ -47,13 +44,13 @@
 
     .question {
       font-size: 20px;
-      position: relative;
+      cursor: pointer;
     }
 
     .question::after {
       content: "+";
       position: absolute;
-      right: 0;
+      right: 20px;
       font-size: 24px;
       color: #007bff;
       transition: transform 0.3s ease;
@@ -77,16 +74,51 @@
       max-height: 400px;
     }
 
-    @media (max-width: 600px) {
-      .qa {
-        padding: 15px;
-      }
-      .question {
-        font-size: 18px;
-      }
-      .answer {
-        font-size: 16px;
-      }
+    .buttons {
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 5px 10px;
+      font-size: 16px;
+      margin-right: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+    }
+
+    .btn.correct {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn.incorrect {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .indicator {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      font-size: 22px;
+    }
+
+    .correct-icon {
+      color: green;
+    }
+
+    .incorrect-icon {
+      color: red;
+    }
+
+    #score {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 22px;
+      color: white;
+      text-shadow: 1px 1px 3px black;
     }
   </style>
 </head>
@@ -94,97 +126,65 @@
 
   <h1>Питання для перевірки Національної Поліції України</h1>
 
-  <div class="container">
+  <div class="container" id="quiz-container">
 
+    <!-- Приклад одного питання -->
     <div class="qa">
-      <div class="question">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
+      <div class="indicator" id="indicator-0"></div>
+      <div class="question" onclick="toggleAnswer(this)">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
       <div class="answer">Конституція України</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Який кодекс регламентує кримінальні правопорушення?</div>
-      <div class="answer">Кримінальний Кодекс України</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Який кодекс регламентує адміністративні правопорушення?</div>
-      <div class="answer">Кодекс про Адміністративні Правопорушення</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
-      <div class="answer">Закон України "Про Національну поліцію"</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">До якої гілки влади відноситься Національна поліція України?</div>
-      <div class="answer">Виконавча</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Приклади превентивних поліцейських заходів</div>
-      <div class="answer">
-        1. Перевірка документів<br>
-        2. Опитування особи<br>
-        3. Поверхнева перевірка та огляд<br>
-        4. Зупинка транспортного засобу<br>
-        та інші
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(0, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(0, false)">❌ Не знав</button>
       </div>
     </div>
 
     <div class="qa">
-      <div class="question">Поліцейські заходи примусу</div>
-      <div class="answer">Фізичний вплив (сила), застосування спецзасобів, застосування зброї</div>
+      <div class="indicator" id="indicator-1"></div>
+      <div class="question" onclick="toggleAnswer(this)">Який кодекс регламентує кримінальні правопорушення?</div>
+      <div class="answer">Кримінальний Кодекс України</div>
+      <div class="buttons">
+        <button class="btn correct" onclick="markAnswer(1, true)">✅ Я знав</button>
+        <button class="btn incorrect" onclick="markAnswer(1, false)">❌ Не знав</button>
+      </div>
     </div>
 
-    <div class="qa">
-      <div class="question">Нормативно-правовий акт щодо зупинки ТЗ?</div>
-      <div class="answer">Закон України про зупинку транспортних засобів</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Мінімальна швидкість на радарах у населених пунктах?</div>
-      <div class="answer">70 км/год</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Що повинен мати поліцейський під час патрулювання?</div>
-      <div class="answer">Бронежилет, зброя, рація, папка з протоколами</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Час на прибуття адвоката після згоди?</div>
-      <div class="answer">15 хвилин</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Що має зробити поліцейський перед допуском адвоката?</div>
-      <div class="answer">Перевірити його свідоцтво</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Яка стаття ККУ про проникнення на закриту територію?</div>
-      <div class="answer">Стаття 45 ККУ</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Який акт визначає, що підрозділи НПУ — закриті об'єкти?</div>
-      <div class="answer">Закон України про закриті та режимні об’єкти</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Яка стаття закону визначає УНП як закриту територію?</div>
-      <div class="answer">5 стаття ЗУ про закриті та режимні об’єкти</div>
-    </div>
+    <!-- Додай ще інші питання тут, ЗБЕРІГАЮЧИ ІНДЕКСИ -->
 
   </div>
 
+  <div id="score">Правильних відповідей: 0 / 2</div>
+
   <script>
-    document.querySelectorAll('.qa').forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
+    let score = 0;
+    let total = 2; // ⚠️ Зміни це число на загальну кількість питань
+    let answered = Array(total).fill(null);
+
+    function toggleAnswer(el) {
+      el.parentElement.classList.toggle('active');
+    }
+
+    function markAnswer(index, isCorrect) {
+      if (answered[index] !== null) return; // вже відповіли
+
+      const indicator = document.getElementById('indicator-' + index);
+      if (isCorrect) {
+        indicator.innerHTML = '✔️';
+        indicator.classList.add('correct-icon');
+        score++;
+      } else {
+        indicator.innerHTML = '❌';
+        indicator.classList.add('incorrect-icon');
+      }
+
+      answered[index] = isCorrect;
+      updateScore();
+    }
+
+    function updateScore() {
+      document.getElementById('score').textContent =
+        `Правильних відповідей: ${score} / ${total}`;
+    }
   </script>
 
 </body>
