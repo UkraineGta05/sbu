@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <title>Прокурорська перевірка НПУ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Підключення шрифта Spectral -->
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap" rel="stylesheet">
-  
   <style>
     body {
       font-family: 'Spectral', serif;
@@ -77,6 +74,20 @@
       max-height: 400px;
     }
 
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 120px;
+      height: auto;
+      opacity: 0.8;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
     @media (max-width: 600px) {
       .qa {
         padding: 15px;
@@ -87,19 +98,30 @@
       .answer {
         font-size: 16px;
       }
+      .logo {
+        width: 90px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Питання для перевірки Національної Поліції України</h1>
-
+  <h1>Питання для перевірки НПУ</h1>
   <div class="container">
 
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
+
     <div class="qa">
-      <div class="question">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
-      <div class="answer">Конституція України</div>
+      <div class="question">Поліцейські заходи примусу</div>
+      <div class="answer">Фізичний вплив (сила), застосування спецзасобів, застосування зброї</div>
     </div>
+
+    <div class="qa">
+      <div class="question">Що має зробити поліцейський перед допуском адвоката?</div>
+      <div class="answer">Перевірити його свідоцтво</div>
+    </div>
+
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
 
     <div class="qa">
       <div class="question">Який кодекс регламентує кримінальні правопорушення?</div>
@@ -107,18 +129,51 @@
     </div>
 
     <div class="qa">
+      <div class="question">Нормативно-правовий акт щодо зупинки ТЗ?</div>
+      <div class="answer">Закон України про зупинку транспортних засобів</div>
+    </div>
+
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
+
+    <div class="qa">
       <div class="question">Який кодекс регламентує адміністративні правопорушення?</div>
       <div class="answer">Кодекс про Адміністративні Правопорушення</div>
     </div>
 
     <div class="qa">
-      <div class="question">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
-      <div class="answer">Закон України "Про Національну поліцію"</div>
+      <div class="question">До якої гілки влади відноситься Національна поліція України?</div>
+      <div class="answer">Виконавча</div>
+    </div>
+
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
+
+    <div class="qa">
+      <div class="question">Яка стаття закону визначає УНП як закриту територію?</div>
+      <div class="answer">5 стаття ЗУ про закриті та режимні об’єкти</div>
     </div>
 
     <div class="qa">
-      <div class="question">До якої гілки влади відноситься Національна поліція України?</div>
-      <div class="answer">Виконавча</div>
+      <div class="question">Час на прибуття адвоката після згоди?</div>
+      <div class="answer">15 хвилин</div>
+    </div>
+
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
+
+    <div class="qa">
+      <div class="question">Мінімальна швидкість на радарах у населених пунктах?</div>
+      <div class="answer">70 км/год</div>
+    </div>
+
+    <div class="qa">
+      <div class="question">Що повинен мати поліцейський під час патрулювання?</div>
+      <div class="answer">Бронежилет, зброя, рація, папка з протоколами</div>
+    </div>
+
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
+
+    <div class="qa">
+      <div class="question">Який нормативно правовий акт в Україні має найвищу юридичну силу?</div>
+      <div class="answer">Конституція України</div>
     </div>
 
     <div class="qa">
@@ -132,40 +187,7 @@
       </div>
     </div>
 
-    <div class="qa">
-      <div class="question">Поліцейські заходи примусу</div>
-      <div class="answer">Фізичний вплив (сила), застосування спецзасобів, застосування зброї</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Нормативно-правовий акт щодо зупинки ТЗ?</div>
-      <div class="answer">Закон України про зупинку транспортних засобів</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Мінімальна швидкість на радарах у населених пунктах?</div>
-      <div class="answer">70 км/год</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Що повинен мати поліцейський під час патрулювання?</div>
-      <div class="answer">Бронежилет, зброя, рація, папка з протоколами</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Час на прибуття адвоката після згоди?</div>
-      <div class="answer">15 хвилин</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Що має зробити поліцейський перед допуском адвоката?</div>
-      <div class="answer">Перевірити його свідоцтво</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Яка стаття ККУ про проникнення на закриту територію?</div>
-      <div class="answer">Стаття 45 ККУ</div>
-    </div>
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
 
     <div class="qa">
       <div class="question">Який акт визначає, що підрозділи НПУ — закриті об'єкти?</div>
@@ -173,8 +195,15 @@
     </div>
 
     <div class="qa">
-      <div class="question">Яка стаття закону визначає УНП як закриту територію?</div>
-      <div class="answer">5 стаття ЗУ про закриті та режимні об’єкти</div>
+      <div class="question">Яка стаття ККУ про проникнення на закриту територію?</div>
+      <div class="answer">Стаття 45 ККУ</div>
+    </div>
+
+    <img src="logo.png" class="logo" alt="Логотип НПУ">
+
+    <div class="qa">
+      <div class="question">Який закон визначає права, обов’язки та статус службовців НПУ?</div>
+      <div class="answer">Закон України "Про Національну поліцію"</div>
     </div>
 
   </div>
